@@ -3,7 +3,7 @@ package ast
 import (
 	"testing"
 
-	"github.com/g4s8/envdoc/testutils"
+	"github.com/rhodeon/envdoc/testutils"
 )
 
 func testGlob(t *testing.T, name string) func(string) bool {

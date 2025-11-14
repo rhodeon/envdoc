@@ -9,8 +9,8 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/g4s8/envdoc/types"
-	"github.com/g4s8/envdoc/utils"
+	"github.com/rhodeon/envdoc/types"
+	"github.com/rhodeon/envdoc/utils"
 )
 
 type Config struct {

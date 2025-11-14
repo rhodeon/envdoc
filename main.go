@@ -7,9 +7,9 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/g4s8/envdoc/ast"
-	"github.com/g4s8/envdoc/debug"
-	"github.com/g4s8/envdoc/render"
+	"github.com/rhodeon/envdoc/ast"
+	"github.com/rhodeon/envdoc/debug"
+	"github.com/rhodeon/envdoc/render"
 )
 
 func main() {

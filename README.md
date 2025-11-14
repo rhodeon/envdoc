@@ -8,10 +8,10 @@ For `docenv` linter see [docenv/README.md](./docenv/README.md).
 
 <br/>
 
-[![CI](https://github.com/g4s8/envdoc/actions/workflows/go.yml/badge.svg)](https://github.com/g4s8/envdoc/actions/workflows/go.yml)
-[![Go Reference](https://pkg.go.dev/badge/github.com/g4s8/envdoc.svg)](https://pkg.go.dev/github.com/g4s8/envdoc)
+[![CI](https://github.com/rhodeon/envdoc/actions/workflows/go.yml/badge.svg)](https://github.com/rhodeon/envdoc/actions/workflows/go.yml)
+[![Go Reference](https://pkg.go.dev/badge/github.com/rhodeon/envdoc.svg)](https://pkg.go.dev/github.com/rhodeon/envdoc)
 [![codecov](https://codecov.io/gh/g4s8/envdoc/graph/badge.svg?token=sqXWNR755O)](https://codecov.io/gh/g4s8/envdoc)
-[![Go Report Card](https://goreportcard.com/badge/github.com/g4s8/envdoc)](https://goreportcard.com/report/github.com/g4s8/envdoc)
+[![Go Report Card](https://goreportcard.com/badge/github.com/rhodeon/envdoc)](https://goreportcard.com/report/github.com/rhodeon/envdoc)
 [![Mentioned in Awesome Go](https://awesome.re/mentioned-badge.svg)](https://github.com/avelino/awesome-go)  
 
 ## Installation
@@ -20,7 +20,7 @@ For `docenv` linter see [docenv/README.md](./docenv/README.md).
 
 Add `envdoc` tool and install it:
 ```bash
-go get -tool github.com/g4s8/envdoc@latest
+go get -tool github.com/rhodeon/envdoc@latest
 go install tool
 ```
 
@@ -41,7 +41,7 @@ go generate ./...
 
 Run it with `go run` in source file:
 ```go
-//go:generate go run github.com/g4s8/envdoc@latest -output environments.md
+//go:generate go run github.com/rhodeon/envdoc@latest -output environments.md
 type Config struct {
     // ...
 }
@@ -49,7 +49,7 @@ type Config struct {
 
 Or download binary to run it:
 ```bash
-go install github.com/g4s8/envdoc@latest
+go install github.com/rhodeon/envdoc@latest
 ```
 
 And use it in code:

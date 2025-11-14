@@ -3,7 +3,7 @@ package resolver
 import (
 	"testing"
 
-	"github.com/g4s8/envdoc/ast"
+	"github.com/rhodeon/envdoc/ast"
 )
 
 func TestResolver(t *testing.T) { //nolint:cyclop
