@@ -28,6 +28,8 @@ type Config struct {
 	EnvPrefix string
 	// NoStyles to disable styles for HTML format
 	NoStyles bool
+	// Edit enables in-place editing mode (replaces content between markers)
+	Edit bool
 	// FieldNames flag enables field names usage intead of `env` tag.
 	FieldNames bool
 	// Target is the target type
@@ -61,6 +63,7 @@ func (c *Config) parseFlags(f *flag.FlagSet) error {
 	f.StringVar(&c.OutFile, "output", "", "Output file path")
 	f.StringVar((*string)(&c.OutFormat), "format", "markdown", "Output format, default `markdown`")
 	f.BoolVar(&c.NoStyles, "no-styles", false, "Disable styles for HTML output")
+	f.BoolVar(&c.Edit, "edit", false, "Enable in-place editing mode (replaces content between markers)")
 	// app config flags
 	f.StringVar(&c.EnvPrefix, "env-prefix", "", "Environment variable prefix")
 	f.BoolVar(&c.FieldNames, "field-names", false, "Use field names if tag is not specified")
@@ -174,6 +177,9 @@ func (c *Config) fprint(out io.Writer) {
 	if c.NoStyles {
 		fmt.Fprintln(out, "  NoStyles: true")
 	}
+	if c.Edit {
+		fmt.Fprintln(out, "  Edit: true")
+	}
 	fmt.Printf("  ExecFile: %q\n", c.ExecFile)
 	fmt.Printf("  ExecLine: %d\n", c.ExecLine)
 	if c.FieldNames {
@@ -194,5 +200,18 @@ func (c *Config) Load() error {
 	}
 	c.setDefaults()
 	c.normalize()
+	return nil
+}
+
+func (c *Config) Validate() error {
+	if c.Edit {
+		if c.OutFormat != "markdown" {
+			return fmt.Errorf("edit mode (-edit) only supports markdown format, got: %s", c.OutFormat)
+		}
+		if c.OutFile == "" {
+			return errors.New("edit mode (-edit) requires -output flag to be specified")
+		}
+	}
+
 	return nil
 }

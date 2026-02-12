@@ -53,4 +53,11 @@ func TestConfig(t *testing.T) {
 			t.Errorf("unexpected FileGlob: %q", c.FileGlob)
 		}
 	})
+	t.Run("validate", func(t *testing.T) {
+		var c Config
+		c.Edit = true
+		c.OutFormat = "text"
+		err := c.Validate()
+		testutils.AssertError(t, err != nil, "expected error for invalid config")
+	})
 }
