@@ -7,9 +7,9 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/g4s8/envdoc/ast"
-	"github.com/g4s8/envdoc/debug"
-	"github.com/g4s8/envdoc/render"
+	"github.com/rhodeon/envdoc/ast"
+	"github.com/rhodeon/envdoc/debug"
+	"github.com/rhodeon/envdoc/render"
 )
 
 func main() {
@@ -31,8 +31,9 @@ func main() {
 		TagDefault:      cfg.TagDefault,
 		RequiredIfNoDef: cfg.RequiredIfNoDef,
 		UseFieldNames:   cfg.FieldNames,
+		CustomTemplate:  cfg.TemplateFile,
 	})
-	renderer := render.NewRenderer(cfg.OutFormat, cfg.NoStyles)
+	renderer := render.NewRenderer(cfg.OutFormat, cfg.Title, cfg.NoStyles)
 	gen := NewGenerator(parser, converter, renderer)
 
 	out, err := os.Create(cfg.OutFile)

@@ -10,9 +10,9 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/g4s8/envdoc/ast"
-	"github.com/g4s8/envdoc/render"
-	"github.com/g4s8/envdoc/types"
+	"github.com/rhodeon/envdoc/ast"
+	"github.com/rhodeon/envdoc/render"
+	"github.com/rhodeon/envdoc/types"
 	"golang.org/x/tools/txtar"
 )
 
@@ -48,7 +48,7 @@ func TestGenerator(t *testing.T) {
 				TagDefault:    "envDefault",
 				UseFieldNames: spec.FieldNames,
 			})
-			rend := render.NewRenderer(types.OutFormatTxt, false)
+			rend := render.NewRenderer(types.OutFormatTxt, "Environment Variables", false)
 			gen := NewGenerator(p, conv, rend)
 			var out bytes.Buffer
 			runGenerator(t, gen, spec, dir, &out)

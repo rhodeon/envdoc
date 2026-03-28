@@ -4,8 +4,8 @@ import (
 	"fmt"
 	"io"
 
-	"github.com/g4s8/envdoc/ast"
-	"github.com/g4s8/envdoc/debug"
+	"github.com/rhodeon/envdoc/ast"
+	"github.com/rhodeon/envdoc/debug"
 )
 
 type typeQualifier struct {

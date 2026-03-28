@@ -3,7 +3,7 @@
 package main
 
 import (
-	"github.com/g4s8/envdoc/types"
+	"github.com/rhodeon/envdoc/types"
 )
 
 func printScopesTree(s []*types.EnvScope) {

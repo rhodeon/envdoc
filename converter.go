@@ -5,9 +5,9 @@ import (
 	"os"
 	"strings"
 
-	"github.com/g4s8/envdoc/ast"
-	"github.com/g4s8/envdoc/debug"
-	"github.com/g4s8/envdoc/types"
+	"github.com/rhodeon/envdoc/ast"
+	"github.com/rhodeon/envdoc/debug"
+	"github.com/rhodeon/envdoc/types"
 )
 
 type Resolver interface {
@@ -20,6 +20,7 @@ type ConverterOpts struct {
 	TagDefault      string
 	RequiredIfNoDef bool
 	UseFieldNames   bool
+	CustomTemplate  string
 }
 
 type Converter struct {
@@ -144,4 +145,8 @@ func (c *Converter) DocItemsFromField(resolver Resolver, file *ast.FileSpec, pre
 		return children
 	}
 	return res
+}
+
+func (c *Converter) CustomTemplate() string {
+	return c.opts.CustomTemplate
 }

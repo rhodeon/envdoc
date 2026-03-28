@@ -5,7 +5,7 @@ The linter check that all environment variable fields with `env` tag are documen
 ## Install linter
 
 ```
-go install github.com/g4s8/envdoc/docenv@latest
+go install github.com/rhodeon/envdoc/docenv@latest
 ```
 
 ## Example

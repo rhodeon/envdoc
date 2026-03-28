@@ -4,7 +4,7 @@ import (
 	"sort"
 	"strings"
 
-	"github.com/g4s8/envdoc/debug"
+	"github.com/rhodeon/envdoc/debug"
 )
 
 type RootCollectorOption func(*RootCollector)
