@@ -10,7 +10,7 @@ import (
 
 	"github.com/rhodeon/envdoc/ast"
 	"github.com/rhodeon/envdoc/debug"
-	"github.com/g4s8/envdoc/edit"
+	"github.com/rhodeon/envdoc/edit"
 	"github.com/rhodeon/envdoc/render"
 )
 
