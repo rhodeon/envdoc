@@ -1,34 +1,9 @@
-{{- define "item" }}
-  {{- $ := index . 0 }}
-  {{- $cfg := index . 1 }}
-    <li>
-    {{- $comma := false -}}
-    {{- if $.EnvName -}}
-      <code>{{ $.EnvName }}</code>
-      {{- template "item.options" (list $ $cfg " (%s)") }}
-      {{- $.Doc | printf " - %s" -}}
-    {{- else -}}
-      {{- $.Doc | printf "%s" -}}
-    {{- end}}
-  {{- $children := $.IndentChildren 0 -}}
-  {{- if $children }}
-    <ul>
-    {{- range $child := $children -}}
-      {{ template "item" (list $child $cfg) -}}
-    {{- end }}
-    </ul>
-  {{ end -}}
-    </li>
-{{- end -}}
-
-{{- $cfg := $.Config -}}
 <!DOCTYPE html>
 <html lang="en">
     <head>
     <meta charset="utf-8">
-    <title>{{ .Title }}</title>
-{{ if .Styles -}}
-    <style>
+    <title>Environment Variables</title>
+<style>
 * {
   box-sizing: border-box;
 }
@@ -95,23 +70,40 @@ p {
   margin-bottom: 16px;
 }
     </style>
-{{- end }}
   </head>
   <body>
     <section>
       <article>
-        <h1>{{ .Title }}</h1>
-{{ range .Sections }}
-  <h2>{{ .Name }}</h2>
-{{ if ne .Doc "" -}}
-<p>{{ .Doc }}</p>
-{{- end }}
+        <h1>Environment Variables</h1>
+
+  <h2>OAuthConfig</h2>
+<p>OAuthConfig holds configuration for OAuth clients and auth redirects.</p>
   <ul>
-{{- range $item := .Items }}
-{{- template "item" (list $item $cfg.Item) -}}
-{{ end }}
+    <li>
+    <ul>
+    <li><code>APP_ID</code> (<strong>required</strong>, non-empty) - </li>
+    <li><code>APP_SECRET</code> (<strong>required</strong>, non-empty, default: <code>changeme</code>) - </li>
+    <li><code>APP_SCOPES</code> (separated by "<code> </code>") - </li>
+    </ul>
+  </li>
+    <li>
+    <ul>
+    <li>
+    <ul>
+    <li><code>AUTH_REDIRECT_EXTERNAL_URL</code> (default: <code>http://localhost/</code>) - </li>
+    <li><code>AUTH_REDIRECT_INTERNAL_ROUTE</code> - </li>
+    </ul>
+  </li>
+    </ul>
+  </li>
+    <li>
+    <ul>
+    <li><code>TESTING_FOO</code> - </li>
+    <li><code>TESTING_BAR</code> (default: <code>abc</code>) - </li>
+    </ul>
+  </li>
   </ul>
-{{ end }}
+
       </article>
     </section>
   </body>
